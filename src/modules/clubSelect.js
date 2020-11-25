@@ -14,9 +14,8 @@
       listClubs.classList.toggle('active');  
     } else if(!e.target.closest('.active') ){
        listClubs.classList.remove('active');
-    }
-      
-  })
+    } 
+  });
 };
 
 export default clubSelect;
