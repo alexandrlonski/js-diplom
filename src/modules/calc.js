@@ -27,12 +27,12 @@
 		
 		cardOrder.addEventListener('input', () => {
 			cardTypes.forEach((elem) => {
-			if(elem.checked && inputPromo.value === '' ){
+			 if(elem.checked && inputPromo.value === 'ТЕЛО2019'){
+        total = MyCeil10((prise * elem.value) - (((prise * elem.value) / 100) * 30));
+			} else if(elem.checked  ){
 				total = prise * elem.value;
        console.log(inputPromo.value);
-			} 	else if(elem.checked && inputPromo.value === 'ТЕЛО2019'){
-        total = MyCeil10((prise * elem.value) - (((prise * elem.value) / 100) * 30));
-			}
+			} 	
 
       iterateValue();
 		});
