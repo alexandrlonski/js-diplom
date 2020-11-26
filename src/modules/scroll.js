@@ -1,6 +1,6 @@
 
   const scroll = () => {
-  const anchors = document.querySelectorAll('.top-menu a[href*="#"], #totop '),
+  const anchors = document.querySelectorAll('.top-menu a[href*="#"], #totop, .scroll a'),
         toTop = document.getElementById('totop'),
         topMenu = document.querySelector('.top-menu'),
         header = document.querySelector('.header-main');
@@ -16,8 +16,8 @@
   };
   
  const html = document.documentElement,
-        body = document.body;
-window.addEventListener('scroll', function() {
+       body = document.body;
+  window.addEventListener('scroll', function() {
    let scrollTop = html.scrollTop || body && body.scrollTop || 0;
       scrollTop -= html.clientTop;
       const rowOnscroll = () => {
@@ -44,13 +44,7 @@ const topMenuOnscroll = () => {
     rowOnscroll();
     topMenuOnscroll();
 });
-
-
-;
-
- 
-     
-       
+   
 };
 
 export default scroll;
