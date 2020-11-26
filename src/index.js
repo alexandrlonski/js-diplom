@@ -9,7 +9,11 @@ import elementClosest from 'element-closest';
 elementClosest(window);
 
 import clubSelect from './modules/clubSelect';
-import popupFreeVisit from './modules/popupFreeVisit';
+import popupForms from './modules/popupForms';
+import sendForm from './modules/sendForm';
+import burgerMenu from './modules/burgerMenu';
 
 clubSelect();
-popupFreeVisit();
+popupForms();
+sendForm();
+burgerMenu();
