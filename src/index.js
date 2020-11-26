@@ -9,5 +9,7 @@ import elementClosest from 'element-closest';
 elementClosest(window);
 
 import clubSelect from './modules/clubSelect';
+import popupFreeVisit from './modules/popupFreeVisit';
 
 clubSelect();
+popupFreeVisit();
