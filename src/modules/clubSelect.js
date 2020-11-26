@@ -6,7 +6,7 @@
         style.textContent = `
           .active {
             display: block !important;
-            z-index: 1005 !important;
+            z-index: 7005 !important;
           }`; 
         document.head.appendChild(style);
   document.addEventListener('click', (e) => {
