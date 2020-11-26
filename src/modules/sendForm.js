@@ -87,11 +87,11 @@ const sendForm = () => {
     document.head.appendChild(style);
   };
   
-         inputsName.forEach((elem) => {
-             elem.addEventListener('input', () => {
-               elem.value = elem.value.replace(/[^а-яё\s]/ig, '');
-               });
-             });
+        //  inputsName.forEach((elem) => {
+        //      elem.addEventListener('input', () => {
+        //        elem.value = elem.value.replace(/[^а-яё\s]/ig, '');
+        //        });
+        //      });
 
          inputsPhone.forEach((elem) => {
              elem.addEventListener('input', () => {
@@ -106,7 +106,7 @@ const sendForm = () => {
         //      }); 
              
          allForm.forEach((form) => {
-         console.log(form);
+        //  console.log(form);
             // form.addEventListener('submit', (e) => {
             // e.preventDefault();
 
