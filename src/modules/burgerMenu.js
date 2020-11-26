@@ -1,5 +1,5 @@
 const burgerMenu = () => {
-  const topMenu = document.querySelector('.top-menu'),
+  const 
         menuBtn = document.querySelector('.menu-button img'),
         popupMenu = document.querySelector('.popup-menu'),
         navDesktop = document.querySelector('.hidden-large'),
@@ -17,32 +17,15 @@ const burgerMenu = () => {
           .static {
             position: static;
           }
-          `
+          `;
         document.head.appendChild(style);
         
-  // if(screen.width > 768){
-  //    navDesktop.classList.add('none');
-  //     navMobile.classList.add('block');
-  // }
      
   if(screen.width <= 768){
     navDesktop.style.display ='block';
     navMobile.style.display ='none';
-
-    document.onscroll = function() {
-     const html = document.documentElement,
-           body = document.body;
-     let scrollTop = html.scrollTop || body && body.scrollTop || 0;
-     scrollTop -= html.clientTop
-   
-         if (scrollTop >= 170) { // Если началась прокрутка, то...
-           topMenu.classList.add('fixed'); // Добавляем класс со стилем со свойством position: fixed
-           topMenu.classList.remove('static'); // Удаляем класс со стилем со свойством position: static
-         } else { // Иначе...
-           topMenu.classList.add('static'); // Добавляем класс со стилем со свойством position: fixed
-           topMenu.classList.remove('fixed'); // Удаляем класс со стилем со свойством position: static
-         };
-     };
+    
+    
   };
 
   document.addEventListener('click', (e) => {
