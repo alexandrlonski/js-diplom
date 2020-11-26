@@ -2,6 +2,8 @@ const burgerMenu = () => {
   const topMenu = document.querySelector('.top-menu'),
         menuBtn = document.querySelector('.menu-button img'),
         popupMenu = document.querySelector('.popup-menu'),
+        navDesktop = document.querySelector('.hidden-large'),
+        navMobile = document.querySelector('.hidden-small'),
         style = document.createElement('style');
         style.setAttribute('type', 'text/css');
         style.textContent = `
@@ -14,16 +16,22 @@ const burgerMenu = () => {
           }
           .static {
             position: static;
-          } 
+          }
           `
         document.head.appendChild(style);
         
-
+  // if(screen.width > 768){
+  //    navDesktop.classList.add('none');
+  //     navMobile.classList.add('block');
+  // }
+     
   if(screen.width <= 768){
+    navDesktop.style.display ='block';
+    navMobile.style.display ='none';
+
     document.onscroll = function() {
      const html = document.documentElement,
            body = document.body;
-   
      let scrollTop = html.scrollTop || body && body.scrollTop || 0;
      scrollTop -= html.clientTop
    

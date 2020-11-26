@@ -12,8 +12,10 @@ import clubSelect from './modules/clubSelect';
 import popupForms from './modules/popupForms';
 import sendForm from './modules/sendForm';
 import burgerMenu from './modules/burgerMenu';
+import scroll from './modules/scroll';
 
 clubSelect();
 popupForms();
 sendForm();
 burgerMenu();
+scroll();
