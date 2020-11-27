@@ -6,10 +6,14 @@
 					totalValue = document.getElementById('price-total'),
 					inputPromo = document.querySelector('[placeholder=Промокод]');			
 		let total;
+		const price = () => {
+				
+       	
+		}
 		cardOrder.addEventListener('click', () => {
 			cardTypes.forEach((elem) => {
 			if (elem.checked)	{
-				if(elem.value === '1') {
+		if(elem.value === '1') {
 					if(inputPromo.value === 'ТЕЛО2019'){
 						return total = Math.ceil(1999 - ((1999 / 100) * 30)) ;
 					}
@@ -26,12 +30,12 @@
 				 return total = 13900;
 				} else if(elem.value === '12'){
 					if(inputPromo.value === 'ТЕЛО2019'){
-						return total = 19900 - ((19900 / 100) * 30);
+						return totalValue.textContent = 19900 - ((19900 / 100) * 30);
 					}
-				 return total = 19900;
+				 return totalValue.textContent = 19900;
 			  } 
 		}	
-       	totalValue.textContent = total;
+       totalValue.textContent = total;
 
 		});
 		})
