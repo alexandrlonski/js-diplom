@@ -1,39 +1,38 @@
 
 
- const calc = (price = 45) => {
+ const calc = () => {
 		const cardTypes = document.querySelectorAll('[name=card-type]'),
 					cardOrder = document.getElementById('card_order'),
 					totalValue = document.getElementById('price-total'),
-					inputPromo = document.querySelector('[placeholder=Промокод]');
-					console.log(inputPromo.textContent );
-	  let sum = 0,
-			  total = 0;
-	  function MyCeil10(val) {
-      return Math.ceil(val / 10) * 10;
-    };		
-		const iterateValue = () => {
-			const requestId = requestAnimationFrame(iterateValue);
-			if (sum < Math.floor(total)) {
-				sum += 5;
-				totalValue.textContent = sum + 'руб.';
-			} else if  (sum > Math.floor(total)) {
-				sum -= 5;
-				totalValue.textContent = sum + 'руб.';
-			} else {
-				cancelAnimationFrame(requestId);
-			}
-		};			
-		
-		
-		cardOrder.addEventListener('input', () => {
+					inputPromo = document.querySelector('[placeholder=Промокод]');			
+		let total;
+		cardOrder.addEventListener('click', () => {
 			cardTypes.forEach((elem) => {
-			 if(elem.checked && inputPromo.value === 'ТЕЛО2019'){
-        total = MyCeil10((price * elem.value) - (((price * elem.value) / 100) * 30));
-			} else if(elem.checked  ){
-				total = price * elem.value;
-			} 	
+			if (elem.checked)	{
+				if(elem.value === '1') {
+					if(inputPromo.value === 'ТЕЛО2019'){
+						return total = Math.ceil(1999 - ((1999 / 100) * 30)) ;
+					}
+				 return total = 1999;
+				}else if(elem.value === '6'){
+					if(inputPromo.value === 'ТЕЛО2019'){
+						return total = 9900 - ((9900 / 100) * 30);
+					}
+				 return total = 9900;
+			  } else if(elem.value === '9'){
+					if(inputPromo.value === 'ТЕЛО2019'){
+						return total = 13900 - ((13900 / 100) * 30);
+					}
+				 return total = 13900;
+				} else if(elem.value === '12'){
+					if(inputPromo.value === 'ТЕЛО2019'){
+						return total = 19900 - ((19900 / 100) * 30);
+					}
+				 return total = 19900;
+			  } 
+		}	
+       	totalValue.textContent = total;
 
-      iterateValue();
 		});
 		})
 	};

@@ -4,6 +4,7 @@
         toTop = document.getElementById('totop'),
         topMenu = document.querySelector('.top-menu'),
         header = document.querySelector('.header-main');
+        toTop.style.display = 'none';
      for (let anchor of anchors) {
        anchor.addEventListener('click', function (elem) {
          elem.preventDefault();

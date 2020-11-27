@@ -5,6 +5,7 @@ const sendForm = () => {
          inputsPhone = document.querySelectorAll('[name=phone]'),
          inputsName = document.querySelectorAll('[name=name]'),
          statusMessage = document.createElement('div');
+        
    
     const applyStyle = () => {
     const style = document.createElement('style');
@@ -100,9 +101,13 @@ const sendForm = () => {
         
              
          allForm.forEach((form) => {
-         console.log(form);
+            const inputs = form.querySelectorAll('input');
+                  
+
             form.addEventListener('submit', (e) => {
             e.preventDefault();
+             const checkBox = form.querySelector('[type=checkbox]');
+                  console.dir(checkBox.checked);
 
             const inputPhone = form.querySelector('[name=phone]'),
                   inputName = form.querySelector('[name=name]'),
@@ -127,6 +132,10 @@ const sendForm = () => {
                  inputName.style.border = ("none");
 
                }
+               if (!checkBox.checked) { 
+                   alert("Дайте своё согласие");
+                   return;
+                   }
             form.appendChild(statusMessage);
             statusMessage.innerHTML = `<div class='sk-wave'>
                                          <div class='sk-rect sk-rect-1'></div>
@@ -147,18 +156,41 @@ const sendForm = () => {
               if(response.status !== 200) {
                  throw new Error('status network not 200');
               }
-             const inputs = form.querySelectorAll('input');
-             statusMessage.style.cssText = 'font-size: 2rem; color: #19b5fe;';
+             statusMessage.style.cssText = 'font-size: 1rem; color: #19b5fe;';
                statusMessage.textContent = successMessage;
                inputs.forEach((elem) => {
                  elem.value = '';
                });
             })
             .catch((error) => {
-              statusMessage.style.cssText = 'font-size: 2rem; color: red;';
+              
+              statusMessage.style.cssText = 'font-size: 2rem; color: red; margin-top: 30%';
                statusMessage.textContent = errorMessage;
+              
                console.error(error);
             });
+            const inputsBlock = form.querySelectorAll('p, button');
+                  inputsBlock.forEach((elem) => {
+                        elem.style.display = 'none';
+                  });
+             
+              setTimeout(() => { 
+              statusMessage.textContent = '';
+              checkBox.checked = false;
+               inputs.forEach((elem) => {
+                 elem.value = '';
+               });
+              } , 5000);
+
+            const popups = document.querySelectorAll('.popup');
+            setTimeout(() => {
+               popups.forEach((elem) => {elem.classList.remove('active')})} , 8000);
+           
+            
+            setTimeout(() => {
+               inputsBlock.forEach((elem) => {
+                        elem.style.display = 'block';
+                  })} , 9000);
            
             });
          });
