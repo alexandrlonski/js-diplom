@@ -4,8 +4,6 @@ const sendForm = () => {
          allForm = document.querySelectorAll('form'),
          inputsPhone = document.querySelectorAll('[name=phone]'),
          inputsName = document.querySelectorAll('[name=name]'),
-         inputMessage = document.querySelector('[name=user_message]'),
-         inputsEmail = document.querySelectorAll('[name=user_email]'),
          statusMessage = document.createElement('div');
    
     const applyStyle = () => {
@@ -110,21 +108,20 @@ const sendForm = () => {
                   inputName = form.querySelector('[name=name]'),
                   inputsForm = form.querySelectorAll('input');
             let input;
-            console.log(inputPhone );
-            console.log(inputName );
-            console.log(inputsForm );
+            
             inputsForm.forEach((item) =>{
               if(item.value === ''){
                  return input = '';
               }
             }) 
               if(!inputPhone.value.match(/^[\+]?[0-9]{7,13}$/ig)) {
-                  //  inputPhone.style.border = ("1px solid red");
+                   inputPhone.style.border = ("1px solid red");
                    alert('Номер введен не верно');
                    return;
-               }  else if(input === ''){ 
-                   alert('заполните все поля');
-                   return;
+              //  }  
+              //  else if(input === ''){ 
+              //      alert('заполните все поля');
+              //      return;
                } else {
                  inputPhone.style.border = ("none");
                  inputName.style.border = ("none");

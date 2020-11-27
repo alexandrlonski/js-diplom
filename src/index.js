@@ -14,6 +14,7 @@ import sendForm from './modules/sendForm';
 import burgerMenu from './modules/burgerMenu';
 import scroll from './modules/scroll';
 import calc from './modules/calc';
+import slider from './modules/slider';
 
 clubSelect();
 popupForms();
@@ -21,3 +22,4 @@ sendForm();
 burgerMenu();
 scroll();
 calc();
+slider();
