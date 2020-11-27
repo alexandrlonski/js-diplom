@@ -99,86 +99,82 @@ const sendForm = () => {
               
                });
              });
-        //  inputsEmail.forEach((elem) => {
-        //      elem.addEventListener('input', () => {
-        //        elem.value = elem.value.replace(/[а-яё\s\f]/ig, '');
-        //        });
-        //      }); 
+        
              
          allForm.forEach((form) => {
-        //  console.log(form);
-            // form.addEventListener('submit', (e) => {
-            // e.preventDefault();
+         console.log(form);
+            form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-            // const inputPhone = form.querySelector('[name=phone]'),
-            //       inputName = form.querySelector('[name=name]'),
-            //       inputsForm = form.querySelectorAll('input');
-            // let input;
-            // console.log(inputPhone );
-            // console.log(inputName );
-            // console.log(inputsForm );
-            // inputsForm.forEach((item) =>{
-            //   if(item.value === ''){
-            //      return input = '';
-            //   }
-            // }) 
-              // if(!inputPhone.value.match(/^[\+]?[0-9]{7,13}$/ig)) {
-              //     //  inputPhone.style.border = ("1px solid red");
-              //      alert('Номер введен не верно');
-              //      return;
-              //  }  else if(input === ''){ 
-              //      alert('заполните все поля');
-              //      return;
-              //  } else {
-              //    inputPhone.style.border = ("none");
-              //    inputName.style.border = ("none");
+            const inputPhone = form.querySelector('[name=phone]'),
+                  inputName = form.querySelector('[name=name]'),
+                  inputsForm = form.querySelectorAll('input');
+            let input;
+            console.log(inputPhone );
+            console.log(inputName );
+            console.log(inputsForm );
+            inputsForm.forEach((item) =>{
+              if(item.value === ''){
+                 return input = '';
+              }
+            }) 
+              if(!inputPhone.value.match(/^[\+]?[0-9]{7,13}$/ig)) {
+                  //  inputPhone.style.border = ("1px solid red");
+                   alert('Номер введен не верно');
+                   return;
+               }  else if(input === ''){ 
+                   alert('заполните все поля');
+                   return;
+               } else {
+                 inputPhone.style.border = ("none");
+                 inputName.style.border = ("none");
 
-              //  }
-            // form.appendChild(statusMessage);
-            // statusMessage.innerHTML = `<div class='sk-wave'>
-            //                              <div class='sk-rect sk-rect-1'></div>
-            //                              <div class='sk-rect sk-rect-2'></div>
-            //                              <div class='sk-rect sk-rect-3'></div>
-            //                              <div class='sk-rect sk-rect-4'></div>
-            //                              <div class='sk-rect sk-rect-5'></div>
-            //                            </div>`;
-            // applyStyle(); 
+               }
+            form.appendChild(statusMessage);
+            statusMessage.innerHTML = `<div class='sk-wave'>
+                                         <div class='sk-rect sk-rect-1'></div>
+                                         <div class='sk-rect sk-rect-2'></div>
+                                         <div class='sk-rect sk-rect-3'></div>
+                                         <div class='sk-rect sk-rect-4'></div>
+                                         <div class='sk-rect sk-rect-5'></div>
+                                       </div>`;
+            applyStyle(); 
                           
-            // const formData = new FormData(form);
-            // let body = {};
-            // formData.forEach((val, key) => {
-            //   body[key] = val;
-            // });
-            // postData(body)
-            // .then((response) => {
-            //   if(response.status !== 200) {
-            //      throw new Error('status network not 200');
-            //   }
-            //  const inputs = form.querySelectorAll('input');
-            //  statusMessage.style.cssText = 'font-size: 2rem; color: #19b5fe;';
-            //    statusMessage.textContent = successMessage;
-            //    inputs.forEach((elem) => {
-            //      elem.value = '';
-            //    });
-            // })
-            // .catch((error) => {
-            //   statusMessage.style.cssText = 'font-size: 2rem; color: red;';
-            //    statusMessage.textContent = errorMessage;
-            //    console.error(error);
-            // });
+            const formData = new FormData(form);
+            let body = {};
+            formData.forEach((val, key) => {
+              body[key] = val;
+            });
+            postData(body)
+            .then((response) => {
+              if(response.status !== 200) {
+                 throw new Error('status network not 200');
+              }
+             const inputs = form.querySelectorAll('input');
+             statusMessage.style.cssText = 'font-size: 2rem; color: #19b5fe;';
+               statusMessage.textContent = successMessage;
+               inputs.forEach((elem) => {
+                 elem.value = '';
+               });
+            })
+            .catch((error) => {
+              statusMessage.style.cssText = 'font-size: 2rem; color: red;';
+               statusMessage.textContent = errorMessage;
+               console.error(error);
+            });
            
-        //     });
+            });
          });
 
-        // const postData = (body) => {
-        //   return fetch('./server.php', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   } ,     
-        //   body: JSON.stringify(body),
-        //   });    
-        // }       
+        const postData = (body) => {
+          return fetch('./server.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          } ,     
+          body: JSON.stringify(body),
+          });    
+        }       
 };
 
 export default sendForm;

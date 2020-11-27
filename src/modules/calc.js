@@ -1,6 +1,6 @@
 
 
- const calc = (prise = 45) => {
+ const calc = (price = 45) => {
 		const cardTypes = document.querySelectorAll('[name=card-type]'),
 					cardOrder = document.getElementById('card_order'),
 					totalValue = document.getElementById('price-total'),
@@ -28,10 +28,9 @@
 		cardOrder.addEventListener('input', () => {
 			cardTypes.forEach((elem) => {
 			 if(elem.checked && inputPromo.value === 'ТЕЛО2019'){
-        total = MyCeil10((prise * elem.value) - (((prise * elem.value) / 100) * 30));
+        total = MyCeil10((price * elem.value) - (((price * elem.value) / 100) * 30));
 			} else if(elem.checked  ){
-				total = prise * elem.value;
-       console.log(inputPromo.value);
+				total = price * elem.value;
 			} 	
 
       iterateValue();
