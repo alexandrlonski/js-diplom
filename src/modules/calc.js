@@ -1,12 +1,13 @@
 
 
  const calc = () => {
-		const cardTypes = document.querySelectorAll('[name=card-type]'),
+		const cardTypes = document.querySelectorAll('.time [name=card-type]'),
 					cardOrder = document.getElementById('card_order'),
 					totalValue = document.getElementById('price-total'),
 					mozaika = document.getElementById('card_leto_mozaika'),
 					schelkovo = document.getElementById('card_leto_schelkovo'),
 					inputPromo = document.querySelector('[placeholder=Промокод]');
+					
 		let total;
 
 		cardOrder.addEventListener('click', () => {

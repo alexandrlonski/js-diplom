@@ -1,12 +1,11 @@
-const sendForm = () => {
+const sendPopupForm = () => {
    const errorMessage = 'Что то пошло не так',
          successMessage = 'Спасибо! Мы скоро с вами свяжемся!', 
-         allForm = document.querySelectorAll('form'),
+         allpopupForm = document.querySelectorAll('.popup form'),
          inputsPhone = document.querySelectorAll('[name=phone]'),
          inputsName = document.querySelectorAll('[name=name]'),
          statusMessage = document.createElement('div');
-        
-   
+
     const applyStyle = () => {
     const style = document.createElement('style');
     style.setAttribute('type', 'text/css');
@@ -86,11 +85,11 @@ const sendForm = () => {
     document.head.appendChild(style);
   };
   
-        //  inputsName.forEach((elem) => {
-        //      elem.addEventListener('input', () => {
-        //        elem.value = elem.value.replace(/[^а-яё\s]/ig, '');
-        //        });
-        //      });
+         inputsName.forEach((elem) => {
+             elem.addEventListener('input', () => {
+               elem.value = elem.value.replace(/[^а-яё\s]/ig, '');
+               });
+             });
 
          inputsPhone.forEach((elem) => {
              elem.addEventListener('input', () => {
@@ -98,16 +97,16 @@ const sendForm = () => {
               
                });
              });
-        
-             
-         allForm.forEach((form) => {
+  
+         allpopupForm.forEach((form) => {
             const inputs = form.querySelectorAll('input');
-                  
+                  const checkBox = form.querySelector('[type=checkbox]');
+                  if(checkBox){
+                     checkBox.required = false;
+                  }
 
             form.addEventListener('submit', (e) => {
             e.preventDefault();
-             const checkBox = form.querySelector('[type=checkbox]');
-                  console.dir(checkBox.checked);
 
             const inputPhone = form.querySelector('[name=phone]'),
                   inputName = form.querySelector('[name=name]'),
@@ -123,10 +122,7 @@ const sendForm = () => {
                    inputPhone.style.border = ("1px solid red");
                    alert('Номер введен не верно');
                    return;
-              //  }  
-              //  else if(input === ''){ 
-              //      alert('заполните все поля');
-              //      return;
+              
                } else {
                  inputPhone.style.border = ("none");
                  inputName.style.border = ("none");
@@ -156,7 +152,7 @@ const sendForm = () => {
               if(response.status !== 200) {
                  throw new Error('status network not 200');
               }
-             statusMessage.style.cssText = 'font-size: 1rem; color: #19b5fe;';
+              statusMessage.style.cssText = 'font-size: 1rem; color: #19b5fe;';
                statusMessage.textContent = successMessage;
                inputs.forEach((elem) => {
                  elem.value = '';
@@ -169,11 +165,14 @@ const sendForm = () => {
               
                console.error(error);
             });
-            const inputsBlock = form.querySelectorAll('p, button');
+            
+             const inputsBlock = form.querySelectorAll('p, button');
+              setTimeout(() => { 
+             
                   inputsBlock.forEach((elem) => {
                         elem.style.display = 'none';
                   });
-             
+              } , 3000);
               setTimeout(() => { 
               statusMessage.textContent = '';
               checkBox.checked = false;
@@ -184,13 +183,13 @@ const sendForm = () => {
 
             const popups = document.querySelectorAll('.popup');
             setTimeout(() => {
-               popups.forEach((elem) => {elem.classList.remove('active')})} , 8000);
+               popups.forEach((elem) => {elem.classList.remove('active')})} , 6000);
            
             
             setTimeout(() => {
                inputsBlock.forEach((elem) => {
                         elem.style.display = 'block';
-                  })} , 9000);
+                  })} , 7000);
            
             });
          });
@@ -206,4 +205,4 @@ const sendForm = () => {
         }       
 };
 
-export default sendForm;
+export default sendPopupForm;
