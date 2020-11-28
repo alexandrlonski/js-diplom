@@ -1,6 +1,6 @@
 
   const scroll = () => {
-  const anchors = document.querySelectorAll('.top-menu a[href*="#"], #totop, .scroll a'),
+  const anchors = document.querySelectorAll('.top-menu a[href*="#"], #totop, .scroll a, .left a'),
         toTop = document.getElementById('totop'),
         topMenu = document.querySelector('.top-menu'),
         header = document.querySelector('.header-main');

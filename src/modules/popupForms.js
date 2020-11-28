@@ -18,10 +18,10 @@ const popupForms = () => {
     } else if(e.target.closest('.overlay') || e.target.closest('.close_icon') || e.target.closest('.close-btn')) {
       popupElems.forEach((elem) => {
         elem.classList.remove('active');
-        // fixedGift.style.display = 'block';
-      })
+       
+      });
     }
-  })
-}
+  });
+};
 
 export default popupForms;

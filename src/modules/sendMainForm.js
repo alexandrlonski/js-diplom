@@ -1,10 +1,14 @@
-const sendPopupForm = () => {
-   const errorMessage = 'Что то пошло не так',
-         successMessage = 'Спасибо! Мы скоро с вами свяжемся!', 
-         allpopupForm = document.querySelectorAll('.popup form'),
+const sendMainForm = () => {
+   const allMainForm = document.querySelectorAll('.popup form, #banner-form, #card_order, #footer_form'),
          inputsPhone = document.querySelectorAll('[name=phone]'),
          inputsName = document.querySelectorAll('[name=name]'),
-         statusMessage = document.createElement('div');
+         popupThanks = document.getElementById('thanks'),
+         totalValue = document.getElementById('price-total'),
+         popupThanksHcontent = document.querySelector('#thanks .form-content h4'),
+         popupThanksPcontent = document.querySelector('#thanks .form-content p'),
+         statusMessage = document.createElement('div'),
+         popup = document.querySelector('.popup');
+         console.log(allMainForm);
 
     const applyStyle = () => {
     const style = document.createElement('style');
@@ -98,40 +102,42 @@ const sendPopupForm = () => {
                });
              });
   
-         allpopupForm.forEach((form) => {
-            const inputs = form.querySelectorAll('input');
-                  const checkBox = form.querySelector('[type=checkbox]');
+         allMainForm.forEach((form) => {
+            const inputs = form.querySelectorAll('[name=phone], [name=name], [name=promo] '),
+                  inputPhone = form.querySelector('[name=phone]'),
+                  inputName = form.querySelector('[name=name]');
+                  
+            let input;
+                  const checkBox = form.querySelector('.personal-data [type=checkbox]');
                   if(checkBox){
                      checkBox.required = false;
                   }
-
+            popup.addEventListener('click', (e) => {
+               if(e.target.closest('.overlay') || e.target.closest('.close_icon') || e.target.closest('.close-btn')) {
+                   inputPhone.value = '';
+                   inputName.value = '';
+               }
+            }); 
             form.addEventListener('submit', (e) => {
             e.preventDefault();
-
-            const inputPhone = form.querySelector('[name=phone]'),
-                  inputName = form.querySelector('[name=name]'),
-                  inputsForm = form.querySelectorAll('input');
-            let input;
             
-            inputsForm.forEach((item) =>{
-              if(item.value === ''){
-                 return input = '';
-              }
-            }) 
               if(!inputPhone.value.match(/^[\+]?[0-9]{7,13}$/ig)) {
                    inputPhone.style.border = ("1px solid red");
                    alert('Номер введен не верно');
                    return;
               
                } else {
-                 inputPhone.style.border = ("none");
-                 inputName.style.border = ("none");
-
-               }
-               if (!checkBox.checked) { 
+                 (inputPhone) ? inputPhone.style.border = ("1px solid #b7b7b7"): "";
+                 (inputName) ?  inputName.style.border = ("1px solid #b7b7b7"): "" ;     
+                 }
+         
+               if(checkBox){
+                  if (!checkBox.checked) { 
                    alert("Дайте своё согласие");
                    return;
                    }
+               }
+              
             form.appendChild(statusMessage);
             statusMessage.innerHTML = `<div class='sk-wave'>
                                          <div class='sk-rect sk-rect-1'></div>
@@ -147,50 +153,40 @@ const sendPopupForm = () => {
             formData.forEach((val, key) => {
               body[key] = val;
             });
+            console.log(body);
             postData(body)
             .then((response) => {
               if(response.status !== 200) {
                  throw new Error('status network not 200');
               }
-              statusMessage.style.cssText = 'font-size: 1rem; color: #19b5fe;';
-               statusMessage.textContent = successMessage;
-               inputs.forEach((elem) => {
-                 elem.value = '';
-               });
+              popupThanksHcontent.textContent = 'Спасибо!'
+              popupThanksPcontent.textContent = `Ваша заявка отправлена.
+                                                  Мы свяжемся с вами в ближайшее время. `
+              popupThanks.classList.add('active');
+              totalValue.textContent = '';
+              statusMessage.textContent = '';
             })
             .catch((error) => {
-              
-              statusMessage.style.cssText = 'font-size: 2rem; color: red; margin-top: 30%';
-               statusMessage.textContent = errorMessage;
-              
-               console.error(error);
-            });
-            
-             const inputsBlock = form.querySelectorAll('p, button');
-              setTimeout(() => { 
-             
-                  inputsBlock.forEach((elem) => {
-                        elem.style.display = 'none';
-                  });
-              } , 3000);
-              setTimeout(() => { 
+               setTimeout(() => {
+              popupThanks.classList.add('active');
+              totalValue.textContent = '';
               statusMessage.textContent = '';
+              popupThanksHcontent.textContent = 'Ошибка!'
+              popupThanksPcontent.textContent = 'Произошла ошибка отправки данных!'
+               console.error(error);
+                 } , 3000);
+
+            });
+            setTimeout(() => { 
+              statusMessage.textContent = '';
+              if(checkBox){
               checkBox.checked = false;
+              }
                inputs.forEach((elem) => {
                  elem.value = '';
                });
               } , 5000);
 
-            const popups = document.querySelectorAll('.popup');
-            setTimeout(() => {
-               popups.forEach((elem) => {elem.classList.remove('active')})} , 6000);
-           
-            
-            setTimeout(() => {
-               inputsBlock.forEach((elem) => {
-                        elem.style.display = 'block';
-                  })} , 7000);
-           
             });
          });
 
@@ -205,4 +201,4 @@ const sendPopupForm = () => {
         }       
 };
 
-export default sendPopupForm;
+export default sendMainForm;

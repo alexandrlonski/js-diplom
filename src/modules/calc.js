@@ -6,11 +6,16 @@
 					totalValue = document.getElementById('price-total'),
 					mozaika = document.getElementById('card_leto_mozaika'),
 					schelkovo = document.getElementById('card_leto_schelkovo'),
-					inputPromo = document.querySelector('[placeholder=Промокод]');
+					inputPromo = document.querySelector('[placeholder=Промокод]'),
+					cardsTypes = cardOrder.querySelector('.cards-types');
 					
 		let total;
 
 		cardOrder.addEventListener('click', () => {
+			console.log();
+			if(cardsTypes){
+				return
+			}
 			if(mozaika.checked) {
         cardTypes.forEach((elem) => {
 			   if (elem.checked)	{
