@@ -8,7 +8,6 @@ const sendMainForm = () => {
          popupThanksPcontent = document.querySelector('#thanks .form-content p'),
          statusMessage = document.createElement('div'),
          popup = document.querySelector('.popup');
-         console.log(allMainForm);
 
     const applyStyle = () => {
     const style = document.createElement('style');
@@ -23,7 +22,7 @@ const sendMainForm = () => {
       }
       
       .sk-wave .sk-rect {
-        background-color: #337ab7;
+        background-color: #ffd11a;
         height: 100%;
         width: .5em;
         display: inline-block;
@@ -153,7 +152,6 @@ const sendMainForm = () => {
             formData.forEach((val, key) => {
               body[key] = val;
             });
-            console.log(body);
             postData(body)
             .then((response) => {
               if(response.status !== 200) {
@@ -163,13 +161,13 @@ const sendMainForm = () => {
               popupThanksPcontent.textContent = `Ваша заявка отправлена.
                                                   Мы свяжемся с вами в ближайшее время. `
               popupThanks.classList.add('active');
-              totalValue.textContent = '';
+              
               statusMessage.textContent = '';
             })
             .catch((error) => {
                setTimeout(() => {
               popupThanks.classList.add('active');
-              totalValue.textContent = '';
+              
               statusMessage.textContent = '';
               popupThanksHcontent.textContent = 'Ошибка!'
               popupThanksPcontent.textContent = 'Произошла ошибка отправки данных!'
