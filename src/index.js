@@ -15,6 +15,7 @@ import burgerMenu from './modules/burgerMenu';
 import scroll from './modules/scroll';
 import calc from './modules/calc';
 import slider from './modules/slider';
+import sliderFoto from './modules/sliderFoto';
 
 clubSelect();
 popupForms();
@@ -23,3 +24,4 @@ burgerMenu();
 scroll();
 calc();
 slider();
+sliderFoto();

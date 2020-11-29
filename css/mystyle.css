@@ -1,0 +1,82 @@
+.slide-gallery {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s
+}
+.slide-active {
+  opacity: 1;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s
+}
+.portfolio-btn {
+  position: absolute;
+  cursor: pointer;
+  top: 45%;
+  z-index: 5;
+  width: 50px;
+  height: 50px;
+  background-color: #ffd11a;
+  background-repeat: no-repeat;
+  background-size: 34px;
+  border-radius: 50%;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s
+}
+
+.portfolio-btn.prev {
+  left: 0;
+  background-image: url(../images/icons/left-arrow.svg);
+  background-position: 25% 50%
+}
+
+.portfolio-btn.next {
+  right: 0;
+  background-image: url(../images/icons/right-arrow.svg);
+  background-position: 75% 50%
+}
+
+.portfolio-btn:hover {
+  background-color: rgba(#ffd11a, .8);
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s
+}
+.portfolio-dots {
+  position: absolute;
+  bottom: 20px;
+  width: 84%;
+  margin: 20px auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 5
+}
+
+.portfolio-dots .dot {
+  cursor: pointer;
+  height: 4px;
+  width: 35px;
+  margin: 0 5px;
+  background-color: #ffffff;
+  display: inline-block;
+  -webkit-transition: background-color, -webkit-transform .4s;
+  transition: background-color, transform .4s, -webkit-transform .4s
+}
+
+.portfolio-dots .dot-active {
+  background-color: #ffd11a;
+ 
+}
+
+.portfolio-dots .dot:hover {
+  background-color: #ffd11a;
+  
+}

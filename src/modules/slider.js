@@ -38,6 +38,7 @@ const slider = () => {
             startSlide();
           }
     });
+    startSlide();
     
 };
 
