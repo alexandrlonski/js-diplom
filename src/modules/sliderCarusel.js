@@ -2,38 +2,47 @@ const sliderCarusel = () => {
  
       const servicesSlider = document.querySelector('.services-slider'),
         sliderWrapper = document.querySelector('#services .wrapper'), 
-        slide = servicesSlider.querySelectorAll('.slide'),
-        btnPrev = servicesSlider.querySelector('.prev'),
-        btnNext = servicesSlider.querySelector('.next');
-
-        servicesSlider.style.overflow = 'auto';
-        servicesSlider.style.paddingLeft = '10px';
-        
+        slides = servicesSlider.querySelectorAll('.slide'),
+        btnPrev = sliderWrapper.querySelector('.prev'),
+        btnNext = sliderWrapper.querySelector('.next'),
+        slideToShow = 5,
+        widthSlide = Math.floor(100 / slideToShow);
+        let position = 0,
+            infinity = true;
+        // добавляем стили
+        sliderWrapper.style.overflow = 'hidden';
+        servicesSlider.style.justifyContent = 'space-between';
+        servicesSlider.style.padding = '0';
+        servicesSlider.style.transition = 'transform 0.5s';
+        servicesSlider.style.willChange = 'transform';
         sliderWrapper.style.position = 'relative';
-        sliderWrapper.style.maxWidth = '1140px';
+        sliderWrapper.style.padding = '0 8px';
+        infinity = true;
         
-    let offset = 1115;
+        slides.forEach((item) => {
+          item.style.flex = `0 0 ${widthSlide}%`;
+          item.style.margin = '0';
+        });
+        
+        btnPrev.addEventListener('click', () => {
+          if(infinity || position > 0){
+            --position;
+            if(position < 0){
+              position = slides.length - slideToShow;
+            }
+            servicesSlider.style.transform = `translateX(-${position * widthSlide}%)`;
+          }
 
-    slide[0].style.transition = '0.5s all';
-    servicesSlider.style.overflow = 'hidden';
-    slide.forEach(item =>{
-        item.style.minWidth = '210px';
-    });
-    slide[0].style.marginLeft = `-${offset}px`;
-    btnNext.addEventListener('click', () => {
-        offset += 224;
-        if(offset > 1110){
-            offset = 0;
-        }
-        slide[0].style.marginLeft = `-${offset}px`;
-    });
-    btnPrev.addEventListener('click', () => {
-        offset -= 224;
-        if(offset <= 0){
-            offset = 1110;
-        }
-        slide[0].style.marginLeft = `-${offset}px`;
-    });     
+        } );
+        btnNext.addEventListener('click', () => {
+          if(infinity || position < slides.length - slideToShow){
+          ++position;
+            if(position > slides.length - slideToShow){
+               position = 0;
+             }
+          servicesSlider.style.transform = `translateX(-${position * widthSlide}%)`;
+          }
+        });
 
 };
 

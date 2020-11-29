@@ -21,20 +21,16 @@ const burgerMenu = () => {
         document.head.appendChild(style);
         
   window.addEventListener("resize", function() {
-    if(screen.width <= 768){
-    navDesktop.style.display ='block';
-    navMobile.style.display ='none';
-  } else {
-     navDesktop.style.display ='none';
-    navMobile.style.display ='flex';
-  }
+         if(screen.width <= 768){
+         navDesktop.style.display ='block';
+         navMobile.style.display ='none';
+       } else {
+          navDesktop.style.display ='none';
+         navMobile.style.display ='flex';
+       }
 
-}, false);   
-  // if(screen.width <= 768){
-  //   navDesktop.style.display ='block';
-  //   navMobile.style.display ='none';
-
-  // };
+    }, false);   
+ 
 
   document.addEventListener('click', (e) => {
     if(e.target.closest('.menu-button img')) {
