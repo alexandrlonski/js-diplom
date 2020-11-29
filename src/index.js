@@ -16,6 +16,7 @@ import scroll from './modules/scroll';
 import calc from './modules/calc';
 import slider from './modules/slider';
 import sliderFoto from './modules/sliderFoto';
+import sliderCarusel from './modules/sliderCarusel';
 
 clubSelect();
 popupForms();
@@ -25,3 +26,4 @@ scroll();
 calc();
 slider();
 sliderFoto();
+sliderCarusel();

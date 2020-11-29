@@ -14,7 +14,7 @@
   -webkit-transition: opacity .5s;
   transition: opacity .5s
 }
-.portfolio-btn {
+.slider-btn {
   position: absolute;
   cursor: pointer;
   top: 45%;
@@ -29,24 +29,24 @@
   transition: background-color .2s
 }
 
-.portfolio-btn.prev {
+.slider-btn.prev {
   left: 0;
   background-image: url(../images/icons/left-arrow.svg);
-  background-position: 25% 50%
+  background-position: 35% 50%
 }
 
-.portfolio-btn.next {
+.slider-btn.next {
   right: 0;
   background-image: url(../images/icons/right-arrow.svg);
-  background-position: 75% 50%
+  background-position: 63% 50%
 }
 
-.portfolio-btn:hover {
+.slider-btn:hover {
   background-color: rgba(#ffd11a, .8);
   -webkit-transition: background-color .2s;
   transition: background-color .2s
 }
-.portfolio-dots {
+.slide-dots {
   position: absolute;
   bottom: 20px;
   width: 84%;
@@ -60,7 +60,7 @@
   z-index: 5
 }
 
-.portfolio-dots .dot {
+.slide-dots .dot {
   cursor: pointer;
   height: 4px;
   width: 35px;
@@ -71,12 +71,12 @@
   transition: background-color, transform .4s, -webkit-transform .4s
 }
 
-.portfolio-dots .dot-active {
+.slide-dots .dot-active {
   background-color: #ffd11a;
  
 }
 
-.portfolio-dots .dot:hover {
+.slide-dots .dot:hover {
   background-color: #ffd11a;
   
 }

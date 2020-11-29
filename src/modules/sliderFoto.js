@@ -6,7 +6,7 @@ const sliderFoto = () => {
          gallery.style.position = 'relative';
         
     const addDots = () => {
-      const portfolioDots = document.querySelector('.portfolio-dots');
+      const portfolioDots = document.querySelector('.slide-dots');
       
       sliders.forEach((index) => {
         const doti = document.createElement('li');
@@ -49,7 +49,7 @@ const sliderFoto = () => {
     gallery.addEventListener('click', (event) => {
        event.preventDefault();
        let target = event.target;
-       if(!target.matches('.dot, .portfolio-btn')){
+       if(!target.matches('.dot, .slider-btn')){
          return;
        }
        prevSlide(sliders, currentSlide, 'slide-active');
@@ -77,13 +77,13 @@ const sliderFoto = () => {
     });
     
     gallery.addEventListener('mouseover', (event) => {
-           if(event.target.matches('.portfolio-btn') || 
+           if(event.target.matches('.slider-btn') || 
           event.target.matches('.dot')) {
             stopSlide();
           }
     });
     gallery.addEventListener('mouseout', (event) => {
-          if(event.target.matches('.portfolio-btn') || 
+          if(event.target.matches('.slider-btn') || 
           event.target.matches('.dot')) {
             startSlide();
           }
