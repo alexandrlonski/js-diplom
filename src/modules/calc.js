@@ -11,7 +11,7 @@
 					
 		let total;
 
-		cardOrder.addEventListener('click', () => {
+		cardOrder.addEventListener('input', () => {
 			console.log();
 			if(cardsTypes){
 				return
