@@ -2,14 +2,9 @@ const sliderFoto = () => {
    const gallery = document.querySelector('#gallery .gallery-slider'),
          sliders = document.querySelectorAll('#gallery .slide');
          
-        //  gallery.style.height = '400px';
+        //  gallery.style.height = '404px';
          gallery.style.position = 'relative';
-        //  sliders.forEach((elem) => {
-        //    elem.style.position = "absolute";
-        //    elem.style.left = "0";
-        //    elem.style.opacity = "0";
-        //    elem.style.transition = 'opacity .5s';
-        //  })
+        
     const addDots = () => {
       const portfolioDots = document.querySelector('.portfolio-dots');
       
