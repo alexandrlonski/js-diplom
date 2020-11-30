@@ -3,10 +3,10 @@ const sendMainForm = () => {
          inputsPhone = document.querySelectorAll('[name=phone]'),
          inputsName = document.querySelectorAll('[name=name]'),
          popupThanks = document.getElementById('thanks'),
-         totalValue = document.getElementById('price-total'),
          popupThanksHcontent = document.querySelector('#thanks .form-content h4'),
          popupThanksPcontent = document.querySelector('#thanks .form-content p'),
          statusMessage = document.createElement('div'),
+         mozaika = document.getElementById('card_leto_mozaika'),
          popup = document.querySelector('.popup');
 
     const applyStyle = () => {
@@ -119,6 +119,8 @@ const sendMainForm = () => {
             }); 
             form.addEventListener('submit', (e) => {
             e.preventDefault();
+            const cardTypes = form.querySelectorAll('[name=card-type]'),
+                  totalValue = form.querySelector('#price-total');
             
               if(!inputPhone.value.match(/^[\+]?[0-9]{7,13}$/ig)) {
                    inputPhone.style.border = ("1px solid red");
@@ -180,10 +182,19 @@ const sendMainForm = () => {
               if(checkBox){
               checkBox.checked = false;
               }
+              if(mozaika){
+                mozaika.checked = true;
+              }
+              if(cardTypes[0]){
+                cardTypes[0].checked = true;
+              }
+              if(totalValue){
+                totalValue.textContent = 1999;
+              }
                inputs.forEach((elem) => {
                  elem.value = '';
                });
-              } , 5000);
+              } , 4000);
 
             });
          });
