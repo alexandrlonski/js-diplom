@@ -26,8 +26,11 @@ const sliderCarusel = () => {
         } else if(screen.width <= 991 && screen.width > 676 ) {
           slideToShow = 3;
           widthSlide = Math.floor(100 / slideToShow);
-        } else if(screen.width <= 676) {
+        } else if(screen.width <= 676 && screen.width > 450) {
           slideToShow = 2;
+          widthSlide = Math.floor(100 / slideToShow);
+        } else if(screen.width <= 450) {
+          slideToShow = 1;
           widthSlide = Math.floor(100 / slideToShow);
         }
 
