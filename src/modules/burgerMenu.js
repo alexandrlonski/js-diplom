@@ -19,6 +19,14 @@ const burgerMenu = () => {
           }
           `;
         document.head.appendChild(style);
+
+        if(screen.width <= 768){
+         navDesktop.style.display ='block';
+         navMobile.style.display ='none';
+       } else {
+          navDesktop.style.display ='none';
+         navMobile.style.display ='flex';
+       }
         
   window.addEventListener("resize", function() {
          if(screen.width <= 768){
